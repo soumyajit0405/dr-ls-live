@@ -91,7 +91,7 @@ class EventCustomerSwitchesThread implements Runnable {
 		JSONObject input= new JSONObject();
 		JSONObject payload= new JSONObject();
 		JSONObject params = new JSONObject();
-		params.put("_state", true);
+		params.put("_state", false);
 		JSONObject device = new JSONObject();
 		device.put("id", this.kiotDeviceId);
 		JSONObject customData = new JSONObject(this.customData);
