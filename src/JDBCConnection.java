@@ -25,9 +25,13 @@ import javax.sql.DataSource;
 
 public class JDBCConnection {
 	private static Connection connection = null;
-	static String  url="jdbc:mysql://103.120.179.22:3306/autoiinno_energytrade?noAccessToProcedureBodies=true";
-	static String  userName="autoiinno_admin";
-	static String  password="Autoi@12345";
+//	static String  url="jdbc:mysql://103.120.179.22:3306/autoiinno_energytrade?noAccessToProcedureBodies=true";
+//	static String  userName="autoiinno_admin";
+//	static String  password="Autoi@12345";
+	static String  url="jdbc:mysql://64.227.129.34:3306/energytrade?useSSL=false";
+	static String  userName="p2pdbuser";
+	static String  password="p2p123";
+
 	public static Connection getOracleConnection()
 			throws ClassNotFoundException, SQLException {
 
@@ -35,8 +39,10 @@ public class JDBCConnection {
 		  
 		/*Connection con=DriverManager.getConnection(  
 				url,userName,password);    */
+//		Connection con=DriverManager.getConnection(  
+//				"jdbc:mysql://139.59.30.199:3306/cesc_dr?noAccessToProcedureBodies=true","admin","Admin@12345");
 		Connection con=DriverManager.getConnection(  
-				"jdbc:mysql://139.59.30.90:3306/energytrade_brpl_bckup?noAccessToProcedureBodies=true","root","Admin@12345");        
+				"jdbc:mysql://64.227.129.34:3306/energytrade?useSSL=false","p2pdbuser","p2p123");
    
 //		Connection con=DriverManager.getConnection(  
 //				"jdbc:mysql://134.209.154.124:3306/energytrade?noAccessToProcedureBodies=true","root","SIBRPLDEMO@123");

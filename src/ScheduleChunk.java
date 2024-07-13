@@ -21,6 +21,7 @@ public class ScheduleChunk {
 		  final long HOUR = 3600*1000; // in milli-seconds.
 		  final long HALFHOUR = 1800*1000;
 	        Date d1=new Date(new Date().getTime() +5*HOUR+HALFHOUR + loadShiftHours );
+	        System.out.println("Schedule Chunk date" + d1);
 	        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");
 	       //SimpleDateFormat dt1 = new SimpleDateFormat("2018-03-06");
 	        System.out.println(dt1.format(d1));
@@ -63,7 +64,7 @@ public class ScheduleChunk {
 	    
 	    {
 	    		ScheduleDAO scheduledao=new ScheduleDAO();
-	   
+	    		System.out.println("Schedule Chunk" + date +" "+time);
 	    		ArrayList<HashMap<String,Object>> responseFromSchedules=scheduledao.getEvents( date , time);
 	    		 Date d1=new Date();
 	  		return responseFromSchedules;

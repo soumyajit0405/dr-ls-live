@@ -28,11 +28,12 @@ public class ScheduleDAO {
 		 if (con == null ) {
 				con = JDBCConnection.getOracleConnection();
 		 }
-		//	System.out.println("select aso.sell_order_id,ubc.private_key,ubc.public_key,abc.order_id from all_sell_orders aso,all_blockchain_orders abc, user_blockchain_keys ubc where aso.transfer_start_ts ='"+date+" "+time+"' and abc.general_order_id=aso.sell_order_id and abc.order_type='SELL_ORDER' and ubc.user_id  = aso.seller_id and aso.order_status_id=1");
+		 System.out.println(date+" "+time);
+			System.out.println("select a.event_id from all_events a where  a.event_status_id= 2 and a.event_start_time ='"+date+" "+time+"' and a.event_type_id = 1");
 		 // String query="select aso.sell_order_id,ubc.private_key,ubc.public_key,abc.order_id,abc.all_blockchain_orders_id from all_sell_orders aso,all_blockchain_orders abc, user_blockchain_keys ubc where aso.transfer_start_ts ='"+date+" "+time+"' and abc.general_order_id=aso.sell_order_id and abc.order_type='SELL_ORDER' and ubc.user_id  = aso.seller_id and aso.order_status_id=3";
 		 	//String query="select a.event_id from all_events a where  a.event_status_id= 8 and a.event_end_time ='"+date+" "+time+"' and a.event_type_id = 2";
-		 	String query="select a.event_id from all_events a where  a.event_status_id= 2 and a.event_start_time ='"+date+" "+time+"' and a.event_type_id = 2";
-		//String query="select a.event_id from all_events a where  a.event_status_id= 2 and a.event_start_time ='2020-12-03 20:00:00' and a.event_type_id = 2";
+		 	String query="select a.event_id from all_events a where  a.event_status_id= 2 and a.event_start_time ='"+date+" "+time+"' and a.event_type_id = 1";
+		 //String query="select a.event_id from all_events a where  a.event_status_id= 2 and a.event_start_time ='2021-12-28 14:00:00' and a.event_type_id = 2";
 			pstmt=con.prepareStatement(query);
 		// pstmt.setString(1,controllerId);
 		 ResultSet rs= pstmt.executeQuery();
@@ -66,8 +67,10 @@ public class ScheduleDAO {
 	 }
 	 
 		public String getBlockChainSettings() throws ClassNotFoundException, SQLException {
-			PreparedStatement pstmt = null;
 			String val = "";
+			try {
+			PreparedStatement pstmt = null;
+			
 			if (con == null) {
 				con = JDBCConnection.getOracleConnection();
 			}
@@ -81,8 +84,12 @@ public class ScheduleDAO {
 			if (val.equalsIgnoreCase("N")) {
 			//autoUpdateTrades();
 			}
+			
+			
+		}catch(Exception e) {
+		e.printStackTrace();	
+		}
 			return val;
-
 		}
 		
 		

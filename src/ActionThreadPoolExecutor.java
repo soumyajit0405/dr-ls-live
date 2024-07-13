@@ -9,6 +9,7 @@ import java.util.concurrent.Executors;
 public class ActionThreadPoolExecutor {
 
 	public void getStarted() throws ClassNotFoundException, SQLException {
+		try {
 		ScheduleChunk scd = new ScheduleChunk();
 		System.out.println("Before start of all threads");
 		ScheduleDAO sdo= new ScheduleDAO();
@@ -34,6 +35,9 @@ public class ActionThreadPoolExecutor {
 
 		} else {
 			
+		}
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 			}
 }
